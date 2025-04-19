@@ -1,6 +1,6 @@
 import uuid
 from django.db import models
-from django.core.exceptions import ValidationError
+
 
 # Create your models here.
 class Application(models.Model):
@@ -32,7 +32,7 @@ class License(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=False, blank=False)
     
     def __str__(self):
-        return f"{self.application_object.name} - {self.buyer_object.name}"
+        return f"{self.application_object.name} - {self.buyer_object.name} until {self.valid_until}"
 
 
 class PaymentHistory(models.Model):
