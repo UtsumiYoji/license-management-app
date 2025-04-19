@@ -41,6 +41,7 @@ class PaymentHistory(models.Model):
     note = models.TextField(null=True, blank=True)  # Optional field for any additional notes
     paid_at = models.DateTimeField(null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True, null=False, blank=False)
+    updated_at = models.DateTimeField(auto_now=True, null=False, blank=False)
     
     def __str__(self):
         return f"Payment of {self.amount} by {self.license_object.buyer_object.name} for {self.license_object.application_object.name}"
